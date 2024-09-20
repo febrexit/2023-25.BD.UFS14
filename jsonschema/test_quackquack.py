@@ -25,3 +25,15 @@ def validate_wrapper(instance, schema):
     except:
         return False
 
+
+def test_function_output_with_snapshot(snapshot):
+    snapshot.snapshot_dir = 'snapshots'  # This line is optional.
+    pierino=func(5)
+    pierino_stringa=str(pierino)
+    snapshot.assert_match(pierino_stringa, 'foo_output.txt') 
+
+
+
+
+
+
