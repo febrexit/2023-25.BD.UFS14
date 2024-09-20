@@ -1,13 +1,15 @@
-name: GitHub Actions Demo
+name: GitHub Actions Demo      
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-24.04
     steps:
+      - uses: actions/checkout@v4
       - run: python --version
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12' 
       - run: uname -a
+      - run: pip install -U pytest
       - run: pytest
