@@ -34,6 +34,17 @@ def test_function_output_with_snapshot(snapshot):
 
 
 
+frutti = """
+frutti,prezzo,colore,sapore
+pera,100,rossa,buono
+mela,10,blu,squisito
+ananas,23,turchino,piccante
+"""
+
+
+def test_function_output_with_snapshot_csv(snapshot):
+    snapshot.snapshot_dir = 'snapshots'  # This line is optional.
+    snapshot.assert_match(frutti, 'frutti.csv') 
 
 
 
