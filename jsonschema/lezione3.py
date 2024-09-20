@@ -22,5 +22,5 @@ def validate_wrapper(instance, schema):
         validate(instance = instance, schema = schema)
         return True
     except:
-        reutrn False
+        return False
 
