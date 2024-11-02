@@ -5,38 +5,6 @@ import logging
 
 app = func.FunctionApp()
 
-@app.route(route="MyHttpTrigger", auth_level=func.AuthLevel.ANONYMOUS)
-def MyHttpTrigger(req: func.HttpRequest) -> func.HttpResponse:
-    logging.info('Python HTTP trigger function processed a request.')
-
-    name = req.params.get('name')
-    surname = req.params.get('surname')
-    if not name:
-        try:
-            req_body = req.get_json()
-        except ValueError:
-            pass
-        else:
-            name = req_body.get('name')
-
-    if name:
-        if surname:
-            return func.HttpResponse(f"Hello, {name} {surname}. This HTTP triggered function executed successfully.")
-        return func.HttpResponse(f"Hello, {name}. This HTTP triggered function executed successfully.")
-    else:
-        return func.HttpResponse(
-             "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.",
-             status_code=200
-        )
-        
-'''
-import azure.functions as func
-import datetime
-import json
-import logging
-
-app = func.FunctionApp()
-
 # Funzione per calcolare l'età in base alla data di nascita
 def calculate_age(birth_date: str) -> int:
     birth_date = datetime.datetime.strptime(birth_date, '%Y-%m-%d')
@@ -91,4 +59,3 @@ def MyHttpTrigger(req: func.HttpRequest) -> func.HttpResponse:
             mimetype="application/json",
             status_code=200
         )
-'''
