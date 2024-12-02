@@ -1,0 +1,15 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "name": { "type": "string" },
+        "age_years": { "type": "integer" },
+        "age_months": { "type": "integer" },
+        "age_days": { "type": "integer" },
+        "total_days": { "type": "integer" },
+        "total_weeks": { "type": "integer" },
+        "next_birthday_in_days": { "type": "integer" },
+        "birth_date": { "type": "string", "format": "date" }
+    },
+    "required": ["name", "age_years", "age_months", "age_days", "total_days", "total_weeks", "next_birthday_in_days", "birth_date"]
+}
